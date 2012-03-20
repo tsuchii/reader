@@ -13,32 +13,12 @@
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/readingModuleStyle.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<script src="js/scripts.js"></script>	
-	
-	<style>
-		
-	</style>
-<!--	<script>
-	  // This must be during the bubble phase (i.e., last argument =
-	  // false) so that inner objects have an opportunity to override it.
-	  document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
-	  var scroller = document.getElementById('scroller');
-	  preventOverScroll(scroller);
-	</script>
--->	
-
-
-	<script>
-		$(document).ready(function(){
-						
-			
-		});
-	</script>
 </head>
 <body>
-
 	<div data-role="page" id="wrapper">
 		<header>
 			<span id="site-title">Reading Tracker</span><span id="icon-wrapper">
@@ -48,13 +28,24 @@
 			</span>
 		</header>
 		<div id="content">
-			<div class="content-block">
+			<div id="statsBlock" class="block">
+				<h2>Reading Stats</h2>
+				<div id="stats">
+					Stats stuff...
+				</div>
+			</div>
+			<div id="readingBlock" class="block">
 				<h2>Lorem to the Ipsum</h2>
 				<div id="fakeText"></div>
 			</div>
-			<div class="content-block">
+			<div id="notesBlock" class="block">
 				<h2>Notes</h2>
-				<div id="notes"></div>
+				<div id="notes">
+					<textarea></textarea>
+					<textarea></textarea>
+					<textarea></textarea>
+					<textarea></textarea>
+				</div>
 			</div>
 		</div>
 	</div>
