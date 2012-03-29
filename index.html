@@ -15,7 +15,9 @@
 	<link rel="stylesheet" href="css/styles.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/highcharts.js"></script>	
 	<script src="js/scripts.js"></script>	
+	<script src="js/stats.js"></script>			
 	
 	<style>
 		
@@ -29,21 +31,15 @@
 	</script>
 -->	
 
-
-	<script>
-		$(document).ready(function(){
-						
-			
-		});
-	</script>
 </head>
 <body>
 	<div data-role="page" id="wrapper">
 		<header>
-			<span id="site-title">Reading Tracker</span><span id="icon-wrapper">
+			<span id="site-title">Reading Tracker</span>
+			<span id="icon-wrapper">
 				<span class="nav-selected">p</span>
-				<span>7</span>
-				<span>K</span>				
+				<a href="stats/index.html" data-transition="flip"><span>7</span></a>
+				<a href="#"><span>K</span></a>				
 			</span>
 		</header>
 		<div id="content">
