@@ -39,16 +39,12 @@ header{
 #icon-wrapper{
 	float:right;
 	margin:10px 20px 0 0;
-	font: 2.6em 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
-}
-#icon-wrapper a{
-	text-decoration:none;
-	color:black;
-	font-weight:200;
+	font: 27px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
 }
 .nav-selected{
 	color:#6699CC;
 }
+
 #content{
 	width:2800px;
 	height:413px;
@@ -56,17 +52,31 @@ header{
 	background:url(../images/reader-bg.png) #ddd;
 	-webkit-transition:all 1.0s ease-in-out;
 }
-#stats-content{
-	padding-top:70px;
-}
-.content-block{
-	width:600px;
-	height:340px;
+
+.block{
+	width: 30%;
+	height: 100%;
 	float:left;
-	background-color:#fff;
-	padding:20px;
-	margin:0 0 0 50px;
-	border-radius: 10px;
+	padding: 0 10px 0 10px;
+	border: 2px solid #999999;
+	border-bottom:none;
+	background-color: #fff;
 	position: relative;
 	overflow-y: auto;
+}
+
+#statsBlock{
+	margin: -2px 20px 0 0;
+	border-top-right-radius: 10px;
+}
+
+#readingBlock{
+	margin-top: -2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#notesBlock{
+	margin: -2px 0 0 20px;
+	border-top-left-radius: 10px;
 }
