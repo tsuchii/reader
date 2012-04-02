@@ -17,33 +17,6 @@ body{
 	margin:0;
 	padding:0;
 }
-.large-button{
-	width:50%;
-	margin:0 auto;
-}
-#wrapper{
-	overflow:auto;
-}
-header{
-	width:100%;
-	height:50px;
-	background-color:#ccc;
-	position:fixed;
-	top:0;
-	left:0;
-}
-#site-title{
-	margin:15px 0 0 20px;
-	font-size:2em;
-}
-#icon-wrapper{
-	float:right;
-	margin:10px 20px 0 0;
-	font: 27px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
-}
-.nav-selected{
-	color:#6699CC;
-}
 
 #content{
 	width:2800px;
@@ -65,18 +38,51 @@ header{
 	overflow-y: auto;
 }
 
-#statsBlock{
+#block-Stats{
 	margin: -2px 20px 0 0;
 	border-top-right-radius: 10px;
 }
 
-#readingBlock{
+#block-Reading{
 	margin-top: -2px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
 
-#notesBlock{
+#block-Notes{
 	margin: -2px 0 0 20px;
 	border-top-left-radius: 10px;
+}
+
+header{
+	width:100%;
+	height:50px;
+	background-color:#ccc;
+	position:fixed;
+	top:0;
+	left:0;
+}
+
+#icon-wrapper{
+	float:right;
+	margin:10px 20px 0 0;
+	font: 27px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
+}
+
+.large-button{
+	width:50%;
+	margin:0 auto;
+}
+
+.nav-selected{
+	color:#6699CC;
+}
+
+#site-title{
+	margin:15px 0 0 20px;
+	font-size:2em;
+}
+
+#wrapper{
+	overflow:auto;
 }

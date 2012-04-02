@@ -6,11 +6,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	
 	<title>Reading Tracker</title>
-	
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/readingModuleStyle.css" />
@@ -28,17 +23,14 @@
 			</span>
 		</header>
 		<div id="content">
-			<div id="statsBlock" class="block">
-				<h2>Reading Stats</h2>
-				<div id="stats">
-					Stats stuff...
-				</div>
+			<div id="block-Stats" class="block">
+				<canvas id="canvas"></canvas>
 			</div>
-			<div id="readingBlock" class="block">
+			<div id="block-Reading" class="block">
 				<h2>Lorem to the Ipsum</h2>
 				<div id="fakeText"></div>
 			</div>
-			<div id="notesBlock" class="block">
+			<div id="block-Notes" class="block">
 				<h2>Notes</h2>
 				<div id="notes">
 					<textarea></textarea>
@@ -51,6 +43,70 @@
 	</div>
 	
 <script>getFakeText();</script>
+<script>
+	var canvas = document.getElementById('canvas');
+	canvas.setAttribute("width", "800");
+	canvas.setAttribute("height", "400");
+	var context = canvas.getContext("2d");
+
+	$('#canvas').mousedown(function(e){
+		var mouseX = e.pageX;
+		var mouseY = e.pageY;
+			
+		paint = true;
+		addClick(e.pageX, e.pageY);
+		redraw();
+	});
+	
+	$('#canvas').mousemove(function(e){
+		if(paint){
+			addClick(e.pageX, e.pageY, true);
+			redraw();
+		}
+	});
+	
+	$('#canvas').mouseup(function(e){
+		paint = false;
+	});
+	
+	$('#canvas').mouseleave(function(e){
+		paint = false;
+	});
+	
+	var clickX = new Array();
+	var clickY = new Array();
+	var clickDrag = new Array();
+	var paint;
+
+	function addClick(x, y, dragging)
+	{
+		clickX.push(x);
+		clickY.push(y);
+		clickDrag.push(dragging);
+	}
+	
+	function redraw(){
+		canvas.width = canvas.width; // Clears the canvas
+		  
+		context.strokeStyle = "#FBEC5D";
+		context.lineJoin = "round";
+		context.lineWidth = 15;
+		context.globalAlpha = .25;
+					
+		for(var i=0; i < clickX.length; i++)
+		{		
+			context.beginPath();
+			if(clickDrag[i] && i){
+				context.moveTo(clickX[i-1], clickY[i-1]);
+			}else{
+				context.moveTo(clickX[i]-1, clickY[i]);
+			}
+				context.lineTo(clickX[i], clickY[i]);
+				context.closePath();
+				context.stroke();
+			}
+	}
+</script>
 </body>
 
 </html>
