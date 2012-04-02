@@ -44,23 +44,26 @@
 	
 <script>getFakeText();</script>
 <script>
+	
+	$("#block-Stats").show();
+	
 	var canvas = document.getElementById('canvas');
 	canvas.setAttribute("width", "800");
 	canvas.setAttribute("height", "400");
 	var context = canvas.getContext("2d");
 
 	$('#canvas').mousedown(function(e){
-		var mouseX = e.pageX;
-		var mouseY = e.pageY;
+		var mouseX = e.clientX;
+		var mouseY = e.clientY;
 			
 		paint = true;
-		addClick(e.pageX, e.pageY);
+		addClick(e.clientX, e.clientY);
 		redraw();
 	});
 	
 	$('#canvas').mousemove(function(e){
 		if(paint){
-			addClick(e.pageX, e.pageY, true);
+			addClick(e.clientX, e.clientY, true);
 			redraw();
 		}
 	});

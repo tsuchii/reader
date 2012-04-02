@@ -19,7 +19,7 @@ body{
 }
 
 #content{
-	width:2800px;
+	width:100%;
 	height:413px;
 	padding-top:70px;
 	background:url(../images/reader-bg.png) #ddd;
@@ -27,15 +27,17 @@ body{
 }
 
 .block{
-	width: 30%;
+	width: 800px;
 	height: 100%;
 	float:left;
+	margin: 0 auto 0 auto;
 	padding: 0 10px 0 10px;
 	border: 2px solid #999999;
 	border-bottom:none;
 	background-color: #fff;
 	position: relative;
 	overflow-y: auto;
+	display: none;
 }
 
 #block-Stats{
