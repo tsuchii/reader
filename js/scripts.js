@@ -7,17 +7,22 @@ function toDashboard(){
 	window.location.href= "index.html";
 }
 
+var blockWidthWithSpacing;
+var padding = 64;
 function setupScreen(){
 	var blockHeight = window.innerHeight - 100;
+	blockWidth = window.innerWidth * 0.75;
+	blockWidthWithSpacing = blockWidth + padding;
+	$("#blocks").css("width", blockWidthWithSpacing * 3);
 	$(".block").css("height", blockHeight);
+	$(".block").css("width", blockWidth);
 	showScreen(2);
 }
 
 function showScreen(screenNumber){
 	var screenSize = window.innerWidth;
-	var blockSize = 1004;
-	var blocksOffset = (screenNumber - 1) * blockSize;
-	var centeringNumber = (screenSize - blockSize) / 2;
+	var blocksOffset = (screenNumber - 1) * blockWidthWithSpacing;
+	var centeringNumber = (screenSize - blockWidthWithSpacing) / 2;
 	blocksOffset -= centeringNumber;
 	$("#blocks").css("margin-left", blocksOffset * -1);
 }
