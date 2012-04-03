@@ -1,15 +1,24 @@
 var chart;
-var colors = Highcharts.getOptions().colors;
+var colors = ["rgba(0,89,45,.7)","rgba(59,89,152,.7)", "rgba(255,121,0,.7)", "rgba(225,34,42,.7)", "rgba(63,0,102,.7)"]
+
 $("#stats-select-menu a").click(function(){	
 	$("#stats-select-menu > a").removeClass("stat-nav-selected");
 	$(this).addClass("stat-nav-selected");
 });
+
+// reset stats dashboard
+function resetDashboard(){
+	$("#chart-block").html("<p class='content-block'>You do your best reading:<a href='#' onclick='locationEfficiency();' class='stats-dashboard-item'>at Hatcher</a><a href='#' onclick='dayEfficiency();' class='stats-dashboard-item'>on Wednesday</a><a href='#' onclick='timeEfficiency();' class='stats-dashboard-item'>between 7:00 and 8:00pm</a></p>");
+}
+
+// begin day efficiency
 function dayEfficiency(){
 	chart = new Highcharts.Chart({
         chart: {
             renderTo: 'chart-block',
             type: 'column',
-			height:'340'
+			height:'340',
+			width:'725'
            },
 		credits: {
 			enabled:false
@@ -58,6 +67,9 @@ function dayEfficiency(){
            }]
        });
 }
+//end day efficiency
+
+// begin location efficiency
 function locationEfficiency(){
 	categories = ['Starbucks', 'Home', 'UGLI', 'Hatcher', 'SI Lounge'];
 	data = [{
@@ -110,7 +122,8 @@ function locationEfficiency(){
            chart: {
                renderTo: 'chart-block',
                type: 'column',
-			height:'340'
+			   height:'340',
+  			   width:'725'			   
            },
 		credits: {
 			enabled:false
@@ -188,7 +201,9 @@ function locationEfficiency(){
 			color: 'white'
            }]
        });
-}	
+}
+
+
 function setChart(name, categories, data, color) {
 	chart.xAxis[0].setCategories(categories);
 	chart.series[0].remove();
@@ -197,13 +212,18 @@ function setChart(name, categories, data, color) {
 		data: data,
 		color: color || 'white'
 	});
-}	
+}
+// end location efficiency		
+
+
+//begin noise efficiency
 function noiseEfficiency(){
 	chart = new Highcharts.Chart({
            chart: {
                renderTo: 'chart-block',
                type: 'column',
-			height:'340'
+		   	   height:'340',
+			   width:'725'		   	   
            },
 		credits: {
 			enabled:false
@@ -250,12 +270,16 @@ function noiseEfficiency(){
            }]
        });
 }
+// end noise efficiency
+
+// begin light efficiency
 function lightEfficiency(){
 	chart = new Highcharts.Chart({
            chart: {
                renderTo: 'chart-block',
                type: 'column',
-			height:'340'
+			   height:'340',
+ 			   width:'725'			
            },
 		credits: {
 			enabled:false
@@ -301,4 +325,108 @@ function lightEfficiency(){
                data: [22, 35, 45, 52, 59, 68, 75, 85, 82, 81]
            }]
        });
-}			
+}
+
+function breakdown(){
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'chart-block',
+			type: 'scatter',
+			height:'340',
+			width:'725'			
+		},
+		credits:{
+			enabled:false
+		},
+		title: {
+			text: 'Reading Efficiency - pages per minute vs. average comprehension'
+		},
+		xAxis: {
+			title: {
+				enabled: true,
+				text: 'Pages per minute'
+			},
+			startOnTick: true,
+			endOnTick: true,
+			showLastLabel: true,
+			min:0,
+			max: 1
+		},
+		yAxis: {
+			title: {
+				text: 'Comprehension'
+			},
+			max:6,
+			showLastLabel: false,
+			tickInterval:1
+		},
+		tooltip: {
+			formatter: function() {
+					return ''+
+					this.x +' ppm, '+ this.y +' comprehension';
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 550,
+			y: 70,
+			floating: true,
+			backgroundColor: '#FFFFFF',
+			borderWidth: 1,
+			itemStyle:{
+				paddingBottom:'10px'
+			}
+		},
+		plotOptions: {
+			scatter: {
+				marker: {
+					symbol: "circle",
+					radius: 8,
+					states: {
+						hover: {
+							enabled: true,
+							lineColor: 'rgb(100,100,100)'
+						}
+					}
+				},
+				states: {
+					hover: {
+						marker: {
+							enabled: false
+						}
+					}
+				}
+			}
+		},
+		series: [{
+			name: 'Starbucks',
+			color: colors[0],
+			data: [[.25, 2], [.32, 2], [.38, 4], [.28, 3]]
+
+		},{
+			name: 'Home',
+			color: colors[1],
+			data: [[.51, 3], [.42, 4], [.53, 2], [.41, 3]]
+
+		},
+		{
+			name: 'UGLI',
+			color: colors[2],
+			data: [[.33, 3], [.41, 2], [.58, 4]]
+
+		},
+		{
+			name: 'Hatcher',
+			color: colors[3],
+			data: [[.48, 4], [.52, 4], [.55, 5]]
+
+		},{
+			name: 'SI Lounge',
+			color: colors[4],
+			data: [[.21, 2], [.33, 4], [.21, 3], [.11, 3]]
+
+		}]
+	});
+}

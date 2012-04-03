@@ -26,15 +26,26 @@ body{
 }
 header{
 	width:100%;
-	height:50px;
-	background-color:#ccc;
+	height:60px;
+	background:url(../images/header-bg.png) #ddd;
+	box-shadow:1px 1px 1px #aaa;
 	position:fixed;
 	top:0;
 	left:0;
 }
+#site-title, #subtitle{
+	color:#ffffff;
+	text-shadow:0 1px 0 #333;
+}
 #site-title{
+	font-family:'Merriweather', serif;
+	font-size:2.5em;
 	margin:15px 0 0 20px;
-	font-size:2em;
+}
+#subtitle{
+	font-family:'News Cycle', sans-serif;
+	margin:15px 0 0 0;
+	font-size:1em;
 }
 #icon-wrapper{
 	float:right;
