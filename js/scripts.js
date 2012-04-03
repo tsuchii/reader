@@ -9,22 +9,32 @@ function toDashboard(){
 
 var blockWidthWithSpacing;
 var padding = 64;
-function setupScreen(){
+function setupInitialScreen(){
 	var blockHeight = window.innerHeight - 100;
 	blockWidth = window.innerWidth * 0.75;
 	blockWidthWithSpacing = blockWidth + padding;
 	$("#blocks").css("width", blockWidthWithSpacing * 3);
 	$(".block").css("height", blockHeight);
 	$(".block").css("width", blockWidth);
-	showScreen(2);
+	showScreen(2, false);
 }
 
-function showScreen(screenNumber){
-	var screenSize = window.innerWidth;
-	var blocksOffset = (screenNumber - 1) * blockWidthWithSpacing;
-	var centeringNumber = (screenSize - blockWidthWithSpacing) / 2;
-	blocksOffset -= centeringNumber;
-	$("#blocks").css("margin-left", blocksOffset * -1);
+function showScreen(screenNumber, animate){
+	console.log("Showing Screen: " + screenNumber);
+	if(currentScreen != screenNumber){
+		currentScreen = screenNumber;
+		var screenSize = window.innerWidth;
+		var blocksOffset = (screenNumber - 1) * blockWidthWithSpacing;
+		var centeringNumber = (screenSize - blockWidthWithSpacing) / 2;
+		blocksOffset -= centeringNumber;
+		
+		if(animate)
+			$("#blocks").animate({
+				marginLeft: blocksOffset * -1,
+			  }, 500);
+		else
+			$("#blocks").css("margin-left", blocksOffset * -1);
+	}
 }
 
 function getFakeText(){

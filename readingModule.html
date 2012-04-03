@@ -29,22 +29,23 @@
 	</header>
 	<div id="readerContent">
 		<div id="blocks">
-			<div id="block-Stats" class="block">
+			<div id="block-Stats" class="block" onclick="showScreen(1, true);">
 				Hello Stats
 			</div>
-			<div id="block-Reading" class="block">
+			<div id="block-Reading" class="block" onclick="showScreen(2, true);">
 				<div id="fakeText"></div>
 				<canvas id="sketch"></canvas>
 			</div>
-			<div id="block-Notes" class="block">
+			<div id="block-Notes" class="block" onclick="showScreen(3, true);">
 				Hello Notes
 			</div>
 		</div>
 	</div>
 
 <script>
+	var currentScreen = 0;
 	getFakeText();
-	setupScreen();
+	setupInitialScreen();
 	var sketcher = null;
 	var brush = null;
 	$(document).ready(function(e) {
