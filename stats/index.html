@@ -17,50 +17,6 @@
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<script src="../js/highcharts.js"></script>
 	<script src="../js/scripts.js"></script>			
-	
-	<style>
-		#wrapper{
-/*			overflow:hidden;*/
-		}
-		#stats-content .content-block{
-			height:300px;
-		}
-		.stats-select-menu{
-			position:absolute;
-			left:0;
-			bottom:0;
-			z-index:1;
-		}
-		#stats-select-menu{
-			position:absolute;
-			left:0;
-			bottom:0;
-			z-index:1;
-			width:1620px;
-			overflow:scroll;			
-		}
-		#stats-select-menu a:hover,#stats-select-menu a:focus, #stats-select-menu a:active{
-			background:white;
-		}
-		#stats-select-menu a.stat-nav-selected {
-			background:#ddd;		
-		}
-		#chart-block{
-			position:fixed;
-			left:0;
-			top:70px;
-			z-index:1;
-			padding:0 20px 20px 20px;
-			width:95%;
-		}
-		#chart-block .highcharts-container{
-			max-width:100%;
-		}
-		.stats-dashboard-item{
-			display:block;
-			padding:10px;
-		}
-	</style>
 	<link href='http://fonts.googleapis.com/css?family=Merriweather|News+Cycle' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -70,36 +26,31 @@
 			<span id="icon-wrapper">
 				<a href="../index.html" data-ajax="false"><span>p</span></a>
 				<span class="nav-selected">7</span>
-				<a href="#"><span>K</span></a>	
+				<a href="../readingModule.html" data-ajax="false"><span>K</span></a>
 			</span>
 		</header>
 		<div id="stats-content">
 			<div id="chart-block">
-				<p class="content-block">
-					You do your best reading:
-					<a href="#" onclick="locationEfficiency();" class="stats-dashboard-item">at Hatcher</a>
-					<a href="#" onclick="dayEfficiency();" class="stats-dashboard-item">on Wednesday</a>
-					<a href="#" onclick="timeEfficiency();" class="stats-dashboard-item">between 7:00 and 8:00pm</a>			
-				</p>
+				<div class="content-block">
+					<h2>You do your best reading:</h2>
+					<span class="stats-dashboard-item">7:00-8:00pm</span>
+					<span class="stats-dashboard-item">Wednesday</span>
+					<span class="stats-dashboard-item">Hatcher</span>										
+					<h2>7 Day Average:</h2>
+					<span class="stats-dashboard-item">Pages per minute: 0.38</span>
+					<span class="stats-dashboard-item">Comprehension: 4.3</span>
+					
+					<a href="#" id="reading-appointment" data-rel="dialog" data-role="button" data-theme="b">make an appointment to read</a>
+				</div>
 			</div>
-			<!-- <div class="stats-select-menu">
-				<a href="#" onclick="dayEfficiency();">day</a>
-				<a href="#" onclick="locationEfficiency()">location efficiency</a>
-				<a href="#" onclick="noiseEfficiency();">noise level</a>								
-				<a href="#" onclick="lightEfficiency();">light</a>
-				<a href="#" onclick="lightEfficiency();">blah</a>
-				<a href="#" onclick="dayEfficiency();">week</a>
-				<a href="#" onclick="locationEfficiency()">huh?</a>
-			</div> -->
 			<div id="stats-select-menu" data-role="controlgroup" data-type="horizontal">
 				<a href="#" data-role="button" class="stat-nav-selected" onclick="resetDashboard();">stats dashboard</a>
 				<a href="#" data-role="button" onclick="breakdown();">efficiency breakdown</a>
 				<a href="#" data-role="button" onclick="dayEfficiency();">efficiency (by day)</a>
 				<a href="#" data-role="button" onclick="locationEfficiency()">efficiency (by location)</a>
 				<a href="#" data-role="button" onclick="timeEfficiency();">efficiency (by time of day)</a>
-				<a href="#" data-role="button" onclick="noiseEfficiency();">noise level</a>								
-				<a href="#" data-role="button" onclick="breakdown();">efficiency breakdown</a>
-				<a href="#" data-role="button" onclick="breakdown();">efficiency breakdown</a>
+				<a href="#" data-role="button" onclick="subjectEfficiency();">efficiency (by subject)</a>
+				<a href="#" data-role="button" onclick="noiseEfficiency();">noise level</a>	
 			</div>
 		</div>
 	</div>
