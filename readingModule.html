@@ -6,109 +6,52 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	
 	<title>Reading Tracker</title>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/readingModuleStyle.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/modernizr.custom.34982.js"></script>
+	<script src="js/sketcher.js"></script>
+	<script src="js/trigonometry.js"></script>
+
 	<script src="js/scripts.js"></script>	
 </head>
 <body>
-	<div data-role="page" id="wrapper">
-		<header>
-			<span id="site-title">Reading Tracker</span><span id="icon-wrapper">
-				<span onclick="javascript: toDashboard();">p</span>
-				<span>7</span>
-				<span class="nav-selected" onclick="javascript: beginReading();">K</span>				
-			</span>
-		</header>
-		<div id="content">
+
+	<div id="header">
+		<span id="site-title">Reading Tracker</span><span id="icon-wrapper">
+			<span onclick="javascript: toDashboard();">p</span>
+			<span>7</span>
+			<span class="nav-selected" onclick="javascript: beginReading();">K</span>				
+		</span>
+	</div>
+	<div id="content">
+		<div id="blocks">
 			<div id="block-Stats" class="block">
-				<canvas id="canvas"></canvas>
+				Hello Stats
 			</div>
 			<div id="block-Reading" class="block">
-				<h2>Lorem to the Ipsum</h2>
 				<div id="fakeText"></div>
+				<canvas id="sketch"></canvas>
 			</div>
 			<div id="block-Notes" class="block">
-				<h2>Notes</h2>
-				<div id="notes">
-					<textarea></textarea>
-					<textarea></textarea>
-					<textarea></textarea>
-					<textarea></textarea>
-				</div>
+				Hello Notes
 			</div>
 		</div>
 	</div>
-	
-<script>getFakeText();</script>
+
 <script>
-	
-	$("#block-Stats").show();
-	
-	var canvas = document.getElementById('canvas');
-	canvas.setAttribute("width", "800");
-	canvas.setAttribute("height", "400");
-	var context = canvas.getContext("2d");
-
-	$('#canvas').mousedown(function(e){
-		var mouseX = e.clientX;
-		var mouseY = e.clientY;
-			
-		paint = true;
-		addClick(e.clientX, e.clientY);
-		redraw();
-	});
-	
-	$('#canvas').mousemove(function(e){
-		if(paint){
-			addClick(e.clientX, e.clientY, true);
-			redraw();
+	getFakeText();
+	setupScreen();
+	var sketcher = null;
+	var brush = null;
+	$(document).ready(function(e) {
+		brush = new Image();
+		brush.src = 'assets/brush3.png';
+		brush.onload = function(){
+			sketcher = new Sketcher( "sketch", brush );
 		}
+		
 	});
-	
-	$('#canvas').mouseup(function(e){
-		paint = false;
-	});
-	
-	$('#canvas').mouseleave(function(e){
-		paint = false;
-	});
-	
-	var clickX = new Array();
-	var clickY = new Array();
-	var clickDrag = new Array();
-	var paint;
-
-	function addClick(x, y, dragging)
-	{
-		clickX.push(x);
-		clickY.push(y);
-		clickDrag.push(dragging);
-	}
-	
-	function redraw(){
-		canvas.width = canvas.width; // Clears the canvas
-		  
-		context.strokeStyle = "#FBEC5D";
-		context.lineJoin = "round";
-		context.lineWidth = 15;
-		context.globalAlpha = .25;
-					
-		for(var i=0; i < clickX.length; i++)
-		{		
-			context.beginPath();
-			if(clickDrag[i] && i){
-				context.moveTo(clickX[i-1], clickY[i-1]);
-			}else{
-				context.moveTo(clickX[i]-1, clickY[i]);
-			}
-				context.lineTo(clickX[i], clickY[i]);
-				context.closePath();
-				context.stroke();
-			}
-	}
 </script>
 </body>
 
