@@ -48,7 +48,8 @@ body{
 #header{
 	width:100%;
 	height:50px;
-	background-color:#ccc;
+	background:url(../images/header-bg.png) #ddd;
+	box-shadow:1px 1px 1px #aaa;
 	position:fixed;
 	top:0;
 	left:0;
@@ -74,23 +75,34 @@ body{
 	font-style: normal;
 }
 
-#site-title{
-	margin:15px 0 0 20px;
-	font-size:2em;
+#site-title, #subtitle{
+	color:#ffffff;
+	text-shadow:0 1px 0 #333;
 }
-
+#site-title{
+	font-family:'Merriweather', serif;
+	font-size:2.5em;
+	margin:15px 0 0 20px;
+}
+#subtitle{
+	font-family:'News Cycle', sans-serif;
+	margin:15px 0 0 0;
+	font-size:1em;
+}
 #icon-wrapper{
 	float:right;
 	margin:10px 20px 0 0;
 	font: 2.6em 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
 }
-
 #icon-wrapper a{
 	text-decoration:none;
-	color:black;
+	color:#ccc;
 	font-weight:200;
 }
-
+#icon-wrapper a span{
+	text-shadow:0 1px 0 #333;	
+}
 .nav-selected{
-	color:#6699CC;
+	text-shadow:0 0 0 #333;
+	color:#A6D785;
 }
