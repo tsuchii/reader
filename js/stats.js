@@ -215,6 +215,67 @@ function setChart(name, categories, data, color) {
 }
 // end location efficiency		
 
+// begin time of day efficiency
+function timeEfficiency(){
+	chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chart-block',
+            type: 'line',
+			height:'340',
+			width:'725'
+           },
+		credits: {
+			enabled:false
+		},
+           title: {
+               text: 'Efficiency Score by Time of Day'
+           },
+           xAxis: {
+               categories: [
+                   '6a',
+                   '8a',
+                   '10a',
+                   '12p',
+                   '2p',
+                   '4p',
+                   '6p',
+                   '8p',
+                   '10p',
+                   '12a',
+                   '2a',
+                   '4a'
+               ],
+			title: {
+                   text: 'Time'
+               }
+           },
+           yAxis: {
+               min: 0,
+			max:100,
+               title: {
+                   text: 'Efficiency Score'
+               }
+           },
+		legend: {
+			enabled:false
+		},
+           tooltip: {
+               formatter: function() {
+                   return ''+
+                   this.x +': '+ this.y;
+               }
+           },
+           plotOptions: {
+               column: {
+                   pointPadding: 0.2,
+                   borderWidth: 0
+               }
+           },
+               series: [{
+               data: [49, 71, 22, 98, 87, 44, 35, 22, 88, 95, 66, 75]
+           }]
+       });
+}
 
 //begin noise efficiency
 function noiseEfficiency(){

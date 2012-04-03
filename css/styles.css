@@ -91,6 +91,9 @@ header{
 	font-size:1.3em;
 	clear:both;
 }
+.readings-list li{
+	padding:10px 0;
+}
 .stats-dashboard-item{
 	display:inline-block;
 	float:left;
@@ -142,4 +145,9 @@ header{
 	float:right;
 	height:40px;
 	margin-top:40px;
+}
+
+/*  */
+#stats-hatcher{
+	
 }
