@@ -25,6 +25,7 @@
 			<a href="index.html" data-ajax="false"><span>p</span></a>
 			<a href="stats/index.html" data-ajax="false"><span>7</span></a>
 			<span class="nav-selected">K</span>
+			<a href="settings.html" data-ajax="false"><span>(</span></a>
 		</span>
 	</header>
 	<div id="readerContent">
@@ -34,6 +35,7 @@
 				<div class="readingInfo">
 					<div class="readingTitle" style="text-align: right;">Stats</div>
 				</div>
+				<img src="images/readingModuleStats.png" />
 			</div>
 			<div id="block-Reading" class="block" onclick="showScreen(2, true);">
 				<div id="fakeText"></div>
@@ -110,7 +112,7 @@
 <script>
 	var currentScreen = 0;
 	getFakeText();
-	setupInitialScreen();
+	setupInitialReadingScreen();
 	var sketcher = null;
 	var brush = null;
 	$(document).ready(function(e) {

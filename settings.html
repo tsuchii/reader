@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<title>Reading Tracker</title>
+	<link rel="stylesheet" href="css/settingsStyle.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/modernizr.custom.34982.js"></script>
+	<script src="js/sketcher.js"></script>
+	<script src="js/trigonometry.js"></script>
+	<script src="js/scripts.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather|News+Cycle' rel='stylesheet' type='text/css'>	
+</head>
+<body>
+
+	<header>
+		<span id="site-title">athenaeum.</span><span id="subtitle"> read better.</span>
+		<span id="icon-wrapper">
+			<a href="index.html" data-ajax="false"><span>p</span></a>
+			<a href="stats/index.html" data-ajax="false"><span>7</span></a>
+			<a href="readingModule.html" data-ajax="false"><span>K</span></a>
+			<span class="nav-selected">(</span>
+		</span>
+	</header>
+	<div id="settingsContent">
+		<div id="settings">
+			<div style="float: left; text-align: center; width: 100%; color: #A6D785; font-size: 2em; margin: 0 0 5px 0;">Settings</div>
+			<div class="setting" name="timeSpent">
+				<div class="settingsIcon">{</div>
+				<div class="settingsTitle">Time Spent</div>
+			</div>
+			<div class="setting" name="comprehensionLevel">
+				<div class="settingsIcon">%</div>
+				<div class="settingsTitle">Comprehension Level</div>
+			</div>
+			<div class="setting" name="ambientLighting">
+				<div class="settingsIcon">E</div>
+				<div class="settingsTitle">Ambient Lighting</div>
+			</div>
+			<div class="setting" name="ambientNoise">
+				<div class="settingsIcon">Y</div>
+				<div class="settingsTitle">Ambient Noise</div>
+			</div>
+			<div class="setting" name="notes">
+				<div class="settingsIcon">V</div>
+				<div class="settingsTitle">Notes</div>
+			</div>
+			<div class="setting" name="location">
+				<div class="settingsIcon">,</div>
+				<div class="settingsTitle">Location</div>
+			</div>
+			<div class="setting" name="readingCategory">
+				<div class="settingsIcon">4</div>
+				<div class="settingsTitle">Reading Category</div>
+			</div>
+		</div>
+		<div id="settingOptions">
+			<div id="setting_timeSpent" class="settingOption">
+				<div class="settingsOptionTitle">Time Spent</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>This measure is used to track reading efficiency. Efficiency with regard to time spent reading works sort of like a bell curve. There is a general amount of time that should be spent on a reading depending on the length and density of the text.</div>
+				</div>
+			</div>
+			<div id="setting_comprehensionLevel" class="settingOption">
+				<div class="settingsOptionTitle">Comprehension Level</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Interval</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">End of reading only</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>We will ask periodically through your reading how well you think you understood the material and once more when you finish the reading. This data is one piece of your efficiency score.</div>
+				</div>
+			</div>
+			<div id="setting_ambientLighting" class="settingOption">
+				<div class="settingsOptionTitle">Ambient Lighting</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>This uses your device's light sensor. We use it to provide data on the light levels of your reading environments. Better lighting environments often lead to better reading efficiency scores.</div>
+				</div>
+			</div>
+			<div id="setting_ambientNoise" class="settingOption">
+				<div class="settingsOptionTitle">Ambient Noise</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>We use this to track the noise levels of your reading environments. While this uses the microphone, we are not recording you. We only keep data about volume levels.</div>
+				</div>
+			</div>
+			<div id="setting_notes" class="settingOption">
+				<div class="settingsOptionTitle">Notes</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>Notes are private unless you share them with a reading group. However, by collecting this data we can tell where the most difficult or most important parts of a reading are which might help further discussion and exploration of a topic.</div>
+				</div>
+			</div>
+			<div id="setting_location" class="settingOption">
+				<div class="settingsOptionTitle">Location</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>Location uses your GPS to determine where you are doing your reading, which helps us determine your most productive reading locations.</div>
+				</div>
+			</div>
+			<div id="setting_readingCategory" class="settingOption">
+				<div class="settingsOptionTitle">Reading Category</div>
+				<div class="settingsOptionDescription">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend><h2>Collection options:</h2></legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">Always on</label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">On when charging</label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">Off</label>
+                    </fieldset>
+					<h2>Why do we collect this?</h2>
+					<div>You can identify categories for your readings. This information is private unless you start a reading group. This information can help us determine if there are particular kinds of readings that you perform better on.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	var blockHeight = window.innerHeight - 100;
+	var blockWidth = window.innerWidth * 0.75;
+	$("#settingsContent").css("width", blockWidth);
+	$("#settingsContent").css("height", blockHeight);
+	$("#settings").css("height", blockHeight-20);
+	
+	$(".setting").click(function(){
+		$(".setting").css("color", "#000000");
+		$(".setting").css("background-color", "");
+		$(this).css("color", "#A6D785");
+		$(this).css("background-color", "#515151");
+		
+		showSelectedSetting($(this).attr("name"));
+	});
+	
+	function showSelectedSetting(name){
+		$(".settingOption").hide();
+		$("#setting_" + name).show();
+	}
+</script>
+</body>
+
+</html>

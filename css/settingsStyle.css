@@ -1,0 +1,75 @@
+html,body{
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}	
+
+body{
+	background: url(../images/reader-bg.png) #ddd;
+	width: 100%;
+	height: 100%;
+}
+
+h2{
+	font-weight: normal;
+	font-size: 1.5em;
+}
+
+#settingsContent{
+	margin: 85px auto 0 auto;
+	position: relative;
+	background-color: #ffffff;
+	border: 2px solid #999999;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#settings{
+	padding: 10px 0;
+	width: 150px;
+	float: left;
+	background-color: #515151;
+	overflow-y: auto;
+	border-top-left-radius: 8px;
+}
+
+.setting{
+	float: left;
+	width: 100%;
+	cursor: pointer;
+	padding: 5px 0;
+	background-color: #dddddd;
+}
+
+.settingOption{
+	display: none;
+}
+
+.settingsOptionTitle{
+	color: #A6D785;
+	background-color: #515151;
+	font-size: 2em;
+	width: 100%;
+	text-align: center;
+	padding: 5px 0;
+}
+
+.settingsOptionDescription{
+	margin: 0 10px 0 180px;
+}
+
+.settingsTitle{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: .8em;
+	margin: -5px 0 5px 0;
+}
+
+.settingsIcon{
+	float: left;
+	margin: 10px 20px 0 0;
+	font: 2.6em 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
+	width: 100%;
+	text-align: center;
+}
