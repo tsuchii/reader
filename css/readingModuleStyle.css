@@ -12,6 +12,7 @@ body{
 
 #blocks{
 	width: 3012px;
+	position: relative;
 }
 
 .block{
@@ -51,8 +52,64 @@ body{
 	z-index: 10;
 }
 
+#notesArea{
+	margin: 10px 0 0 0;
+}
+
+.noteRow{
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+#noteDotRelations{
+	position: absolute;
+	top: 252px;
+	pointer-events:none;
+	right: 1000px;
+	display: none;
+	z-index: 10;
+}
+
+.noteDot{
+	height: 46px;
+	float: left;
+	margin: 0 20px 0 0;
+	position: relative;
+}
+
+.noteDotImage{
+	margin: 14px 0 0 0;
+}
+
+.noteTextArea{
+	float: left;
+	width: 80%;
+}
+
+.noteTextArea textarea{
+	width: 100%;
+}
+
 #readerContent{
 	position: relative;
+}
+
+.readingInfo{
+	font-family: Helvetica, Arial, Sans-Serif;
+	width: 100%;
+	margin: 10px 0 0 0;
+	border-bottom: 1px solid #515151;
+}
+.readingTitle{
+	font-size: 30px;
+	color: #515151;
+	width: 100%;
+}
+.readingSubTitle{
+	font-size: 16px;
+	color: #999999;
+	width: 100%;
 }
 
 #sketch {
