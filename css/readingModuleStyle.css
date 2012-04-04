@@ -23,6 +23,7 @@ body{
 	padding: 0 10px 0 10px;
 	border: 2px solid #515151;
 	background-color: #fff;
+	box-shadow:1px 1px 1px #aaa;
 	overflow-y: auto;
 }
 

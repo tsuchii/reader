@@ -22,6 +22,7 @@ h2{
 	border: 2px solid #515151;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	box-shadow:1px 1px 1px #aaa;
 }
 
 #settings{
