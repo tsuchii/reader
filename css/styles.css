@@ -83,6 +83,7 @@ header{
 	padding:20px;
 	margin:0 0 0 50px;
 	border-radius: 10px;
+	border: 2px solid #999999;
 	position: relative;
 	overflow-y: auto;
 }
