@@ -69,6 +69,11 @@ header{
 #icon-wrapper a span{
 	text-shadow:0 1px 0 #333;	
 }
+.shared-icon, #unshared-icon{
+	float:right;
+	margin-top:-40px;
+	font: 2.6em 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 5px;
+}
 .nav-selected{
 	text-shadow:0 0 0 #333;
 	color:#A6D785;
@@ -81,6 +86,12 @@ header{
 }
 #stats-content{
 	padding-top:70px;
+}
+#welcome{
+	font-size:1.6em;
+}
+.reading-list{
+	overflow:hidden;
 }
 .content-block{
 	width:600px;
@@ -95,13 +106,30 @@ header{
 	position: relative;
 	overflow-y: auto;
 }
-.content-block h2{
+.content-block h2, .content-block h3{
 	margin:0;
+	padding:0 0 10px 20px;
 	font-size:1.3em;
+	text-align:left;
 	clear:both;
+}
+.readings-list{
+	list-style-type:none;
 }
 .readings-list li{
 	padding:10px 0;
+	border-top:1px dotted #ccc;	
+}
+.readings-list .stat-group-percent{
+	display:block;
+	padding-bottom:10px
+}
+.readings-list a{
+	text-decoration:none;
+}
+.readings-list span{
+	color:#bbb;
+	font-size:.8em;
 }
 .stats-dashboard-item{
 	display:inline-block;
@@ -140,17 +168,17 @@ header{
 	padding:0 20px 20px 20px;
 	width:95%;
 }
+#chart-block .content-block{
+	text-align:center;
+}
 #chart-block .highcharts-container{
 	max-width:100%;
 }
-#reading-appointment{
-	width:50%;
-	float:right;
-	height:40px;
-	margin-top:40px;
-}
-
 /* images and styles for stats dashboard */
+#stats-dashboard-items{
+	margin:0 auto;
+	width:400px;
+}
 .stats-dashboard-item{
 	display:block;
 	padding:10px;
@@ -178,4 +206,17 @@ header{
 	bottom:10px;
 	left:30%;
 	color:#629632;
+}
+.content-block .stats-suggestion{
+	clear:both;
+	display:block;
+	text-align:center;
+	padding-top:30px;
+	margin-bottom:0;
+}
+#reading-appointment{
+	width:50%;
+	margin:0 auto;
+	height:40px;
+	margin-top:40px;
 }

@@ -323,7 +323,7 @@ function noiseEfficiency(){
 		tooltip: {
 			formatter: function() {
 					return ''+
-					this.x +' ppm, '+ this.y +' comprehension';
+					this.x +' db, '+ this.y +' comprehension';
 			}
 		},
 		legend: {
@@ -556,7 +556,7 @@ function breakdown(){
 			scatter: {
 				marker: {
 					symbol: "circle",
-					radius: 6,
+					radius: 7,
 					states: {
 						hover: {
 							enabled: true,
