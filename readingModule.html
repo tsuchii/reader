@@ -29,15 +29,80 @@
 	</header>
 	<div id="readerContent">
 		<div id="blocks">
+			<img id="noteDotRelations" src="images/dotRelations.png" />
 			<div id="block-Stats" class="block" onclick="showScreen(1, true);">
-				Hello Stats
+				<div class="readingInfo">
+					<div class="readingTitle" style="text-align: right;">Stats</div>
+				</div>
 			</div>
 			<div id="block-Reading" class="block" onclick="showScreen(2, true);">
 				<div id="fakeText"></div>
 				<canvas id="sketch"></canvas>
+				<div id="selfAssessment">
+					<div class="selfAssessmentTitle">Rate your level of comprehension</div>
+					<div id="selfAssessmentRatings">
+						<div class="selfAssessment" style="background-color:#ed1c24;">1</div>
+						<div class="selfAssessment" style="background-color:#f7941d;">2</div>
+						<div class="selfAssessment" style="background-color:#fff200;">3</div>
+						<div class="selfAssessment" style="background-color:#8dc63f;">4</div>
+						<div class="selfAssessment" style="background-color:#00a651;">5</div>
+					</div>
+				</div>
 			</div>
-			<div id="block-Notes" class="block" onclick="showScreen(3, true);">
-				Hello Notes
+			<div id="block-Notes" class="block">
+				<div class="readingInfo">
+					<div class="readingTitle" style="text-align: left;">Notes</div>
+				</div>
+				<div id="notesArea">
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot" style="cursor: pointer;"><img id="noteDotForRelation" class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -54,8 +119,27 @@
 		brush.onload = function(){
 			sketcher = new Sketcher( "sketch", brush );
 		}
-		
 	});
+	
+	$("#noteDotForRelation").click(function(event){
+		event.stopPropagation();
+		showDotRelations(); 
+	});
+	
+	$("#noteDotRelations").click(function(event) {
+		console.log("pressed");
+		showDotRelations(); 
+	});	
+	
+	$("#block-Notes").click(function(event) {
+		showScreen(3, true);
+	});
+	
+	$(".selfAssessment").click(function(event){
+		$(".selfAssessment").css("border", "2px solid #e7e7e7");
+		$(this).css("border", "2px solid #515151");
+	});
+
 </script>
 </body>
 
