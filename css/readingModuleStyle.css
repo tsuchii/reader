@@ -112,6 +112,33 @@ body{
 	width: 100%;
 }
 
+#selfAssessment{
+	background-color: #dddddd;
+	width: 100%;
+	float: left;
+}
+
+.selfAssessmentTitle{
+	text-align: center;
+	width: 100%;
+}
+
+#selfAssessmentRatings{
+	margin: 20px auto 20px auto;
+	float: left;
+}
+
+.selfAssessment{
+	border-radius: 25px;
+	border: 2px solid #e7e7e7;
+	padding: 13px 20px;
+	font-size: 18px;
+	font-weight: bold;
+	float: left;
+	margin: 0 0 0 20px;
+	cursor: pointer;
+}
+
 #sketch {
 	position: absolute;
 	top: 0;

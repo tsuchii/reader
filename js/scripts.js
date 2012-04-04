@@ -17,6 +17,9 @@ function setupInitialScreen(){
 	$(".block").css("height", blockHeight);
 	$(".block").css("width", blockWidth);
 	$("#noteDotRelations").css("right", blockWidthWithSpacing-padding/2-15);
+	
+	var assessmentWidth = parseInt($("#selfAssessmentRatings").css("width").split("px")[0]);
+	$("#selfAssessmentRatings").css("margin-left", ((blockWidthWithSpacing)/2 - assessmentWidth/2 - padding));
 	showScreen(2, false);
 }
 
