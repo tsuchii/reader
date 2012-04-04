@@ -6,6 +6,10 @@ $("#stats-select-menu a").click(function(){
 	$(this).addClass("stat-nav-selected");
 });
 
+$("#reading-appointment").click(function(){
+	alert("Reading - Hatcher has been added to your calendar on Wednesday, April 10th from 7:00-9:00pm")
+});
+
 // reset stats dashboard
 function resetDashboard(){
 	$("#chart-block").html("<p class='content-block'>You do your best reading:<a href='#' onclick='locationEfficiency();' class='stats-dashboard-item'>at Hatcher</a><a href='#' onclick='dayEfficiency();' class='stats-dashboard-item'>on Wednesday</a><a href='#' onclick='timeEfficiency();' class='stats-dashboard-item'>between 7:00 and 8:00pm</a></p>");
@@ -67,7 +71,6 @@ function dayEfficiency(){
            }]
        });
 }
-//end day efficiency
 
 // begin location efficiency
 function locationEfficiency(){
@@ -261,8 +264,14 @@ function timeEfficiency(){
 		},
            tooltip: {
                formatter: function() {
-                   return ''+
-                   this.x +': '+ this.y;
+                   if (this.y > 0){
+					   return ''+
+	                   this.x +': '+ this.y;
+				   }
+				   else{
+						return ''+
+		                this.x +': '+ 'no readings';
+				   }
                }
            },
            plotOptions: {
@@ -272,7 +281,7 @@ function timeEfficiency(){
                }
            },
                series: [{
-               data: [49, 71, 22, 98, 87, 44, 35, 22, 88, 95, 66, 75]
+               data: [0, 60, 55, 0, 35, 43, 76, 95, 88, 43, 36, 22]
            }]
        });
 }
@@ -280,58 +289,107 @@ function timeEfficiency(){
 //begin noise efficiency
 function noiseEfficiency(){
 	chart = new Highcharts.Chart({
-           chart: {
-               renderTo: 'chart-block',
-               type: 'column',
-		   	   height:'340',
-			   width:'725'		   	   
-           },
-		credits: {
+		chart: {
+			renderTo: 'chart-block',
+			type: 'scatter',
+			height:'340',
+			width:'725'			
+		},
+		credits:{
 			enabled:false
 		},
-           title: {
-               text: 'Efficiency Score by Noise Level'
-           },
-           xAxis: {
-               categories: [
-                   'Starbucks',
-                   'Home',
-                   'UGLI',
-                   'Hatcher',
-                   'SI Lounge'
-               ],
+		title: {
+			text: 'Location - reading efficiency vs. decibel level'
+		},
+		xAxis: {
 			title: {
-                   text: 'Location'
-               }
-           },
-           yAxis: {
-               min: 0,
-			max:100,
-               title: {
-                   text: 'Efficiency Score'
-               }
-           },
-		legend: {
-			enabled:false
+				enabled: true,
+				text: 'Decibels'
+			},
+			startOnTick: true,
+			endOnTick: true,
+			showLastLabel: true,
+			min:0,
+			max: 90
 		},
-           tooltip: {
-               formatter: function() {
-                   return ''+
-                   this.x +': '+ this.y;
-               }
-           },
-           plotOptions: {
-               column: {
-                   pointPadding: 0.2,
-                   borderWidth: 0
-               }
-           },
-               series: [{
-               data: [22, 67, 15, 88, 39]
-           }]
-       });
+		yAxis: {
+			title: {
+				text: 'Comprehension'
+			},
+			max:6,
+			showLastLabel: false,
+			tickInterval:1
+		},
+		tooltip: {
+			formatter: function() {
+					return ''+
+					this.x +' ppm, '+ this.y +' comprehension';
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 560,
+			y: 40,
+			floating: true,
+			backgroundColor: '#FFFFFF',
+			borderWidth: 1,
+			itemStyle:{
+				paddingBottom:'10px'
+			}
+		},
+		plotOptions: {
+			scatter: {
+				marker: {
+					symbol: "circle",
+					radius: 9,
+					states: {
+						hover: {
+							enabled: true,
+							lineColor: 'rgb(100,100,100)'
+						}
+					}
+				},
+				states: {
+					hover: {
+						marker: {
+							enabled: false
+						}
+					}
+				}
+			}
+		},
+		series: [{
+			name: 'Starbucks',
+			color: colors[0],
+			data: [[80, 2]]
+
+		},{
+			name: 'Home',
+			color: colors[1],
+			data: [[45, 3]]
+
+		},
+		{
+			name: 'UGLI',
+			color: colors[2],
+			data: [[60, 3]]
+
+		},
+		{
+			name: 'Hatcher',
+			color: colors[3],
+			data: [[30, 4]]
+
+		},{
+			name: 'SI Lounge',
+			color: colors[4],
+			data: [[48, 2]]
+
+		}]
+	});
 }
-// end noise efficiency
 
 // begin light efficiency
 function lightEfficiency(){
@@ -388,6 +446,60 @@ function lightEfficiency(){
        });
 }
 
+// begin subject efficiency
+function subjectEfficiency(){
+	chart = new Highcharts.Chart({
+           chart: {
+               renderTo: 'chart-block',
+               type: 'column',
+			   height:'340',
+ 			   width:'725'			
+           },
+		credits: {
+			enabled:false
+		},
+           title: {
+               text: 'Efficiency Score by Group'
+           },
+           xAxis: {
+               categories: [
+                   'Personal Informatics',
+                   'Interaction Design',
+                   'Puppies'
+               ],
+			title: {
+                   text: 'Group'
+               }
+           },
+           yAxis: {
+               min: 0,
+			max:100,
+               title: {
+                   text: 'Efficiency Score'
+               }
+           },
+		legend: {
+			enabled:false
+		},
+           tooltip: {
+               formatter: function() {
+                   return ''+
+                   this.x +': '+ this.y;
+               }
+           },
+           plotOptions: {
+               column: {
+                   pointPadding: 0.2,
+                   borderWidth: 0
+               }
+           },
+               series: [{
+               data: [85, 57, 100]
+           }]
+       });
+}
+
+// begin efficiency breakdown
 function breakdown(){
 	chart = new Highcharts.Chart({
 		chart: {
@@ -444,7 +556,7 @@ function breakdown(){
 			scatter: {
 				marker: {
 					symbol: "circle",
-					radius: 8,
+					radius: 6,
 					states: {
 						hover: {
 							enabled: true,

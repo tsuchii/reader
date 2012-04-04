@@ -134,12 +134,6 @@ header{
 #chart-block .highcharts-container{
 	max-width:100%;
 }
-.stats-dashboard-item{
-	display:block;
-	padding:10px;
-	text-align:center;
-	font-size:.8em;
-}
 #reading-appointment{
 	width:50%;
 	float:right;
@@ -147,7 +141,32 @@ header{
 	margin-top:40px;
 }
 
-/*  */
+/* images and styles for stats dashboard */
+.stats-dashboard-item{
+	display:block;
+	padding:10px;
+	text-align:center;
+	font-size:.8em;
+	position:relative;
+}
+#stats-time{
+	background:url(../images/time.png) #ccc;
+}
+#stats-wednesday{
+	background:url(../images/wednesday.png) #ccc;
+}
 #stats-hatcher{
-	
+	background:url(../images/hatcher.png) #ccc;
+}
+.stat-box-title{
+	display:block;
+	font-size:1em;
+}
+.stat-box-number{
+	font-size:2.6em;
+	font-weight:bold;
+	position:absolute;
+	bottom:10px;
+	left:30%;
+	color:#629632;
 }
