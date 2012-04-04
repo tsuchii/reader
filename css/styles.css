@@ -39,10 +39,16 @@ header{
 	color:#ffffff;
 	text-shadow:0 1px 0 #333;
 }
+
+#owlLogo{
+	margin: 10px 0 0 10px;
+	height: 40px;
+}
+
 #site-title{
 	font-family:'Merriweather', serif;
 	font-size:2.5em;
-	margin:15px 0 0 20px;
+	margin:15px 0 0 -5px;
 }
 #subtitle{
 	font-family:'News Cycle', sans-serif;
@@ -83,7 +89,7 @@ header{
 	padding:20px;
 	margin:0 0 0 50px;
 	border-radius: 10px;
-	border: 2px solid #999999;
+	border: 2px solid #515151;
 	position: relative;
 	overflow-y: auto;
 }

@@ -20,7 +20,8 @@
 <body>
 
 	<header>
-		<span id="site-title">athenaeum.</span><span id="subtitle"> read better.</span>
+		<img id="owlLogo" src="images/owl.png" />
+		<span id="site-title">athenaeum.</span><span id="subtitle"> read smarter.</span>
 		<span id="icon-wrapper">
 			<a href="index.html" data-ajax="false"><span>p</span></a>
 			<a href="stats/index.html" data-ajax="false"><span>7</span></a>
@@ -35,7 +36,7 @@
 				<div class="readingInfo">
 					<div class="readingTitle" style="text-align: right;">Stats</div>
 				</div>
-				<img src="images/readingModuleStats.png" />
+				<img style="margin: 10px 0 0 0; width: 100%;" src="images/readingModuleStats.png" />
 			</div>
 			<div id="block-Reading" class="block" onclick="showScreen(2, true);">
 				<div id="fakeText"></div>
@@ -58,50 +59,50 @@
 				<div id="notesArea">
 					<div class="noteRow">
 						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
+						<div class="noteTextArea"><textarea>Sed vitae est quis elit viverra laoreet rhoncus et nunc.</textarea></div>
 					</div>
 					<div class="noteRow">
 						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
+						<div class="noteTextArea"><textarea>Ut et urna in dui vehicula vestibulum eget ac sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae eros eu tellus vehicula semper. Suspendisse facilisis libero quis nisl mollis sed euismod nulla auctor. Nulla eu nisl vitae ligula.</textarea></div>
 					</div>
 					<div class="noteRow">
 						<div class="noteDot" style="cursor: pointer;"><img id="noteDotForRelation" class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea>Cras eget vestibulum quam. Duis in velit lorem, in pretium nibh. Suspendisse dolor sem, pellentesque ac bibendum aliquet, placerat a.</textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
+						<div class="noteTextArea"><textarea></textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
 						<div class="noteTextArea"><textarea></textarea></div>
 					</div>
 					<div class="noteRow">
 						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteTextArea"><textarea>Curabitur ut turpis sit amet nulla blandit commodo. Morbi a nisi sit amet lorem iaculis molestie in non urna. Morbi in odio vel lectus facilisis molestie. Curabitur vulputate velit eget.</textarea></div>
+					</div>
+					<div class="noteRow">
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
 						<div class="noteTextArea"><textarea></textarea></div>
 					</div>
 					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
 						<div class="noteTextArea"><textarea></textarea></div>
 					</div>
 					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
 						<div class="noteTextArea"><textarea></textarea></div>
 					</div>
 					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
-					</div>
-					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
-					</div>
-					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
-					</div>
-					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
-					</div>
-					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
-						<div class="noteTextArea"><textarea></textarea></div>
-					</div>
-					<div class="noteRow">
-						<div class="noteDot"><img class="noteDotImage" src="images/noteDot.png" /></div>
+						<div class="noteDot"><img class="noteDotImage" src="images/noteDotEmpty.png" /></div>
 						<div class="noteTextArea"><textarea></textarea></div>
 					</div>
 				</div>
@@ -138,8 +139,15 @@
 	});
 	
 	$(".selfAssessment").click(function(event){
-		$(".selfAssessment").css("border", "2px solid #e7e7e7");
-		$(this).css("border", "2px solid #515151");
+		$(".selfAssessment").css("border", "3px solid #e7e7e7");
+		$(this).css("border", "3px solid #515151");
+	});
+	
+	$("textarea").change(function(event){
+		if($(this).val() == "")
+			$($($(this).parent().siblings()[0]).children()[0]).attr("src", "images/noteDotEmpty.png");
+		else
+			$($($(this).parent().siblings()[0]).children()[0]).attr("src", "images/noteDot.png");
 	});
 
 </script>

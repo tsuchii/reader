@@ -19,7 +19,7 @@ h2{
 	margin: 85px auto 0 auto;
 	position: relative;
 	background-color: #ffffff;
-	border: 2px solid #999999;
+	border: 2px solid #515151;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
@@ -29,6 +29,7 @@ h2{
 	width: 150px;
 	float: left;
 	background-color: #515151;
+	border-right: 2px solid #515151;
 	overflow-y: auto;
 	border-top-left-radius: 8px;
 }
