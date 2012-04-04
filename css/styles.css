@@ -87,8 +87,13 @@ header{
 #stats-content{
 	padding-top:70px;
 }
-#welcome{
-	font-size:1.6em;
+#welcome-message{
+	font-size:1.8em;
+	font-family:'Merriweather', serif;
+	padding-left:15px;
+	display:block;
+	margin:0 auto;
+	width:55%;
 }
 .reading-list{
 	overflow:hidden;
@@ -150,7 +155,7 @@ header{
 	left:0;
 	bottom:0;
 	z-index:1;
-	width:1620px;
+	width:1040px;
 	overflow:scroll;	
 	margin:0 0 4px 0;		
 }
@@ -218,5 +223,5 @@ header{
 	width:50%;
 	margin:0 auto;
 	height:40px;
-	margin-top:40px;
+	margin-top:20px;
 }
